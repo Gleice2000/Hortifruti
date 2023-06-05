@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hortifruti</string>
+    <string name="hint_email">Email:</string>
+    <string name="hint_senha">Senha:</string>
+    <string name="button_entrar">Entrar</string>
+    <string name="tela_cadastro">Não possui uma conta? Cadastre-se!</string>
+</resources>
