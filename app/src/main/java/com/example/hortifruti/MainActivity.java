@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
 
         EmailEdit = findViewById(R.id.EmailEdit);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navegarTelaPrincipal() {
-        Intent intent = new Intent(this,TelaPrincipal.class);
+        Intent intent = new Intent(getBaseContext(),TelaPrincipal.class);
         startActivity(intent);
         finish();
     }
