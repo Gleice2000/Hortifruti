@@ -16,10 +16,10 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 public class MainActivity extends AppCompatActivity {
-    private EditText EmailEdit;
-    private EditText SenhaEdit;
-    private Button Entrar;
-    private ProgressBar Progresso;
+    private EditText emailEdit;
+    private EditText senhaEdit;
+    private Button entrarButton;
+    private ProgressBar progressoBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +29,22 @@ public class MainActivity extends AppCompatActivity {
         //getSupportActionBar().hide();
         getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
 
-        EmailEdit = findViewById(R.id.EmailEdit);
-        SenhaEdit = findViewById(R.id.SenhaEdit);
-        Entrar = findViewById(R.id.Entrar);
-        Progresso = findViewById(R.id.Progresso);
+        emailEdit = findViewById(R.id.EmailEdit);
+        senhaEdit = findViewById(R.id.SenhaEdit);
+        entrarButton = findViewById(R.id.Entrar);
+        progressoBar = findViewById(R.id.Progresso);
 
-        Entrar.setOnClickListener(new View.OnClickListener() {
+        entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = EmailEdit.getText().toString();
-                String senha = SenhaEdit.getText().toString();
+                String email = emailEdit.getText().toString();
+                String senha = senhaEdit.getText().toString();
 
                 if (email.isEmpty()) {
-                    EmailEdit.setError("Digite o Email!");
+                    emailEdit.setError("Digite o Email!");
+
                 } else if (senha.isEmpty()) {
-                    SenhaEdit.setError("Digite a senha!");
-                } else if (email.contains("@gmail.com")) {
-                    Snackbar snackbar = Snackbar.make(v, "Email inválido!", Snackbar.LENGTH_SHORT);
-                    snackbar.show();
+                    senhaEdit.setError("Digite a senha!");
                 } else if (senha.length() <= 5) {
                     Snackbar snackbar = Snackbar.make(v, "Senha inválida, precisa ter pelo menos 6 caracteres!", Snackbar.LENGTH_SHORT);
                     snackbar.show();
@@ -58,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(final View view) {
-        Progresso.setVisibility(View.VISIBLE);
+        progressoBar.setVisibility(View.VISIBLE);
 
-        Entrar.setEnabled(false);
-        Entrar.setTextColor(Color.parseColor("#FFFFFF"));
+        entrarButton.setEnabled(false);
+        entrarButton.setTextColor(Color.parseColor("#FFFFFF"));
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
@@ -74,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void navegarTelaPrincipal() {
-        Intent intent = new Intent(getBaseContext(),TelaPrincipal.class);
+        Intent intent = new Intent(MainActivity.this, Ofertas.class);
         startActivity(intent);
         finish();
     }

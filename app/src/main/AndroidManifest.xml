@@ -21,8 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="com.example.hortifruti.Ofertas"
+            android:name=".Ofertas"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdaptadorProduto"
+            android:exported="false" />
+
+        <activity
+            android:name=".Produto"
             android:exported="false" />
     </application>
 </manifest>
